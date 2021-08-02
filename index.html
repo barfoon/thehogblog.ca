@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+   <head>
+      <title>1204 Recordings</title>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+      <meta content='en_US' http-equiv='Content-Language'>
+      <meta content='1204 Recordings - Recording, Mixing, Production, Mastering in Toronto' name='description'>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0' />
+      <link href='https://www.1204recordings.com' rel='canonical'>
+      <link rel="stylesheet" href="css/simple-grid.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div class='container'>
+      <header>
+         <nav>
+            <a href='#contact' rel='noreferrer noopener nofollow'>Contact</a>
+            <button id='theme-button'></button>
+         </nav>
+      </header>
+      <h1 id='contact'>Contact</h1>
+      <section>
+      <blockquote>
+         For rates and inquiries, please contact directly: <br>
+         <a href="mailto:info@thehogblog.ca" style="font-size: 200%; margin-top: 20px; float: left;">info@thehogblog.ca</a>
+         <br><br><br>
+      </blockquote>
+      </div>
+      </section>
+
+      <script type='text/javascript'>
+         const themeButton = document.getElementById('theme-button');
+         function setTheme({ light = true }) {
+           if (light) {
+             document.body.setAttribute('data-theme', 'light');
+             themeButton.innerText = '☽';
+           } else {
+             document.body.setAttribute('data-theme', 'dark');
+             themeButton.innerText = '☼';
+           }
+         }
+         const THEME_STORAGE_KEY = '1204recordings.com_theme';
+         function toggleTheme() {
+           const light = document.body.getAttribute('data-theme') !== 'light';
+           setTheme({ light });
+           localStorage.setItem(THEME_STORAGE_KEY, document.body.getAttribute('data-theme'));
+         }
+         themeButton.onclick = toggleTheme;
+         const stored = localStorage.getItem(THEME_STORAGE_KEY);
+         const defaultIsLight = !(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+         setTheme({ light: stored ? stored === 'light' : defaultIsLight });
+      </script>
+   </body>
+</html>
